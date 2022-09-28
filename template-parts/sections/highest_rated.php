@@ -13,8 +13,7 @@ function epicure_hightes_rated_restaurants($number = -1)
     <div class="section">
         <h3 class="section-title"><?php the_field('popular_restaurants_title') ?></h3>
         <ul class="highest-rated-restaurants">
-            <?php while ($results->have_posts()) : $results->the_post();
-            ?>
+            <?php while ($results->have_posts()) : $results->the_post(); ?>
                 <?php if (rmp_get_avg_rating(get_the_ID()) >= '4') : ?>
                     <li class="restaurant-card">
                         <div class="restaurant-card-content">
@@ -36,6 +35,13 @@ function epicure_hightes_rated_restaurants($number = -1)
             <?php endwhile;
             wp_reset_postdata(); ?>
         </ul>
+        <div class="cta">
+            <button class="cta-button">
+                <a href="<?php the_field('cta_link'); ?>">
+                    <?php the_field('cta_text'); ?>
+                </a>
+            </button>
+        </div>
     </div>
 
 <?php }

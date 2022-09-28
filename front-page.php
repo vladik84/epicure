@@ -6,7 +6,7 @@
         <?php
         // Check if an image exists
         if (has_post_thumbnail()) :
-            the_post_thumbnail();
+            the_post_thumbnail('box');
         endif;
         ?>
         <?php epicure_hightes_rated_restaurants() ?>
