@@ -1,16 +1,34 @@
 <?php get_header(); ?>
 
 <main class="container">
-    <?php while (have_posts()) : the_post(); ?>
-        <h1><?php the_title() ?></h1>
-        <?php
-        // Check if an image exists
-        if (has_post_thumbnail()) :
-            the_post_thumbnail('box');
-        endif;
-        ?>
-        <?php epicure_hightes_rated_restaurants() ?>
-    <?php endwhile; ?>
+        <div class="sections">
+                <?php
+                /** SECTION - BANNER  */
+                get_template_part('template-parts/sections/hero', 'banner');
+                /** END - BANNER */
+
+                /** SECTION - RESTAURANTS */
+                get_template_part('template-parts/sections/highest', 'rated');
+                /** END - RESTAURANTS */
+
+                /** SECTION - FEATURED DISHES */
+                get_template_part('template-parts/sections/signature', 'dish');
+                /** END - FEATURED DISHES */
+
+                /** SECTION - ICONS */
+                get_template_part('template-parts/sections/dish', 'icons');
+                /** END - ICONS */
+
+                /** SECTION - FEATURED CHEF */
+                get_template_part('template-parts/sections/featured', 'chef');
+                /** END - FEATURED CHEF */
+
+                /** SECTION - ABOUT US */
+                get_template_part('template-parts/sections/about', 'us');
+                /** END - ABOUT US */
+                ?>
+        </div>
+
 </main>
 
 <?php get_footer(); ?>

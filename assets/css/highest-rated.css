@@ -1,0 +1,46 @@
+.highest-rated {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.highest-rated .section-title {
+    text-align: center;
+}
+
+.highest-rated .highest-rated-restaurants {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.highest-rated .highest-rated-restaurants .restaurant-card {
+    background-color: #F9F4EA;
+    margin: 5px;
+}
+
+.highest-rated .highest-rated-restaurants .restaurant-card .restausrant-card-content {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.highest-rated .highest-rated-restaurants .restaurant-card .restausrant-card-content img {
+    width: 350px;
+    height: 235px;
+}
+
+.highest-rated .cta {
+    display: flex;
+    justify-content: right;
+    padding-top: 20px;
+}
+
+.highest-rated .cta .cta-button {
+    background-color: transparent;
+    border: 0;
+}
+
+.highest-rated .cta button:hover {
+    font-weight: bold;
+}

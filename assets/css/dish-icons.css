@@ -1,0 +1,18 @@
+.description-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding: 50px 0;
+}
+
+.description-icons .icons-list {
+    display: flex;
+}
+
+.description-icons .icons-list .single-icon {
+    display: flex;
+    padding: 0 30px;
+    flex-direction: column;
+    align-items: center;
+}
