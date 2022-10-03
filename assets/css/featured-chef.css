@@ -1,0 +1,57 @@
+.featured-chef {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-chef .section-title {
+    text-align: center;
+}
+
+.featured-chef .chef-card {
+    display: grid;
+    margin-bottom: 20px;
+}
+
+.featured-chef .chef-card img {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.featured-chef .chef-card .chef-card-title {
+    grid-row: 1;
+    grid-column: 1;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    align-self: end;
+    margin: 0;
+    width: 350px;
+    text-align: center;
+}
+
+.featured-chef .chef-card .chef-card-description {
+    grid-row: 1;
+    grid-column: 2;
+    padding: 30px 30px;
+    text-align: justify;
+    overflow: auto;
+    max-height: 250px;
+}
+
+.featured-chef .related-restaurants {
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.featured-chef .related-restaurants .related-restaurants-card {
+    background-color: #F9F4EA;
+    margin: 5px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.featured-chef .related-restaurants .related-restaurants-card:first-child {
+    margin-left: 0;
+}
+

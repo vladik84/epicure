@@ -1,0 +1,37 @@
+.about-us {
+    background-color: #fafafa;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.about-us .section-title {
+    margin-left: 5%;
+    margin-bottom: 16px;
+}
+
+.about-us .about-us-content {
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+}
+
+.about-us .about-us-content .about-us-description {
+    margin-right: 200px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    height: 250px;
+    white-space: pre-line;
+    overflow: auto;
+}
+
+.about-us .about-us-content .about-us-image {
+    grid-row: 1;
+    grid-column: 2;
+    width: 150px;
+    height: 150px;
+    padding: 50px;
+}
+
+.about-us .about-us-content .download-links a {
+    margin-right: 10px;
+}
