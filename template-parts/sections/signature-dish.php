@@ -1,25 +1,30 @@
 <?php
+
+$selected_restaurant = get_field('featured_dishes_restaurant');
+
 $args = array(
+    'posts_per_page' => 3,
     'post_type' => 'epicure_dishes',
-    'is_featured' => 'true'
+    'meta_query' => array(
+        array(
+            'key' => 'is_featured',
+            'value' => true
+        ),
+        array(
+            'key' => 'restaurant',
+            'value' => $selected_restaurant->ID
+        )
+    ),
 );
 // Use WP_Query and append the results into $results
 $results = new WP_Query($args);
 ?>
 
-<div class="section signature-dish">
-    <?php
-    $selected_restaurant = get_field('featured_dishes_restaurant');
-    ?>
-    <h2 class="section-title"><?php echo get_field('featured_dishes_title') . " " . $selected_restaurant->name ?> </h2>
-    <ul class="featured-dishes">
-        <?php $counter = 0; ?>
-        <?php while ($results->have_posts()) : $results->the_post(); ?>
-            <?php if (
-                get_field('restaurant')->ID === $selected_restaurant->ID &&
-                (get_field('is_featured'))
-            ) : ?>
-                <?php $counter++ ?>
+<?php if ($results->post_count !== 0) : ?>
+    <div class="section signature-dish">
+        <h2 class="section-title"><?php echo get_field('featured_dishes_title') . " " . $selected_restaurant->name ?> </h2>
+        <ul class="featured-dishes">
+            <?php while ($results->have_posts()) : $results->the_post(); ?>
                 <li class="dish-card">
                     <div class="dish-card-content">
                         <?php the_post_thumbnail('square'); ?>
@@ -30,22 +35,23 @@ $results = new WP_Query($args);
                             <?php echo get_field('ingredients'); ?>
                         </div>
                         <div class="dish-price-icons">
-                            <h4 class="dish-price" id="hide"><?php echo the_field('price'); ?></h4>
-                            <div class="dish-icons" id="show">
+                            <h4 class="dish-price"><?php echo the_field('price'); ?></h4>
+                            <div class="dish-icons">
                                 <?php
                                 $icons = get_field('icon');
-                                foreach ($icons as $icon) { ?>
-                                    <img class="dish-icon" src="<?php echo get_template_directory_uri() . "/img" .  "/" .  $icon . ".svg" ?>">
-                                <?php   } ?>
+                                if ($icons != false) :
+                                    foreach ((array)$icons as $icon) { ?>
+                                        <div class="dish-icon">
+                                            <?php echo get_the_post_thumbnail($icon); ?>
+                                        </div>
+                                <?php   }
+                                endif; ?>
                             </div>
                         </div>
                     </div>
                 </li>
-            <?php endif; ?>
-        <?php endwhile;
-        wp_reset_postdata(); ?>
-        <?php if ($counter === 0) : ?>
-            <p>No featured dishes yet!</p>
-        <?php endif; ?>
-    </ul>
-</div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </ul>
+    </div>
+<?php endif; ?>

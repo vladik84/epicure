@@ -1,10 +1,13 @@
 <?php
 $args = array(
-    'post_type' => 'epicure_restaurants'
+    'post_type' => 'epicure_restaurants',
+    
+    //How to quarey from the 'wp_rmp_analytics' table?
 );
 // Use WP_Query and append the results into $results
 $results = new WP_Query($args);
 ?>
+
 <div class="section highest-rated">
     <h2 class="section-title"><?php the_field('popular_restaurants_title') ?></h2>
     <ul class="highest-rated-restaurants">
