@@ -52,5 +52,3 @@ function epicure_setup()
 
 }
 add_action('after_setup_theme', 'epicure_setup');
-
-?>
